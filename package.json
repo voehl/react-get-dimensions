@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/main.js",
+  "files": [
+    "src",
+    "dist",
+    "test",
+    ".babelrc",
+    "webpack.config.js"
+  ],
   "scripts": {
     "test": "jest",
     "start": "webpack --mode development --watch",
