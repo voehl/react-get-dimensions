@@ -1,14 +1,18 @@
+import React from 'react';
 import getDimensions from '../src';
 
-// TODO: measureHeight in eigenes modul auslagern
-// TODO: measureHeight ohne dom rendering realisierbar?
-
 describe('getDimensions()', () => {
-    test('returns correct index', () => {
-        const x = jest.fn();
-        getDimensions(<asd/>, dimensions => {
-            console.log('RESULT:', dimensions);
+    test('result has expected properties', () => {
+        getDimensions(<div/>, dimensions => {
+            expect(dimensions.width).toBe(0);
+            expect(dimensions.height).toBe(0);
         });
-        //expect(3).toBe(3);
+    });
+
+    test('number of childNodes is zero', () => {
+        expect(document.body.childNodes.length).toBe(0);
+        getDimensions(<div/>, dimensions => {
+            expect(document.body.childNodes.length).toBe(0);
+        });
     });
 });
